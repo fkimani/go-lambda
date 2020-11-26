@@ -1,0 +1,23 @@
+service: go-lambda
+
+provider: 
+  name: aws
+  runtime: go1.x
+  region: us-east-1
+environment:
+  stage: ${self:provider.stage}
+
+package:
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+
+functions:
+  get:
+    handler: bin/get
+    events:
+      - http:
+        path: getQ
+        method: GET
+        
