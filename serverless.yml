@@ -14,8 +14,8 @@ package:
     - ./bin/**
 
 functions:
-  get:
-    handler: bin/get
+  getq:
+    handler: bin/getq
     events:
       - http:
         path: getQ
